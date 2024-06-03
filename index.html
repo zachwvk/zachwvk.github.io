@@ -1,9 +1,21 @@
 <!DOCTYPE html>
 <html>
-<body>
+<head>
+<script type="module">
+    import { exports } from "./main.js"; exports()
+    
+    setTimeout(() => {
+        document.getElementsByClassName('pageContent')[0].classList.remove('hide_till_5s')
+        console.log("Delayed for 5 seconds.");
+    }, "5000");
+</script>
+<link rel="stylesheet" href="main.css">
+</head>
+<body onload="openPage(null, 'home')">
 
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
+<div class="pageContent hide_till_5s">
+    The Page has not loaded correctly
+</div>
 
 </body>
 </html>

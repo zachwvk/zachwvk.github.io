@@ -3,6 +3,22 @@
 <head>
 <script type="module">
     import { exports } from "./main.js"; exports()
+    
+    //var articles = getElementsByClassName("article");
+    //for(var i = 0; i < slides.length; i++)
+    //{
+    //   Distribute(slides[i]);
+    //}
+    
+    document.querySelectorAll('.article').forEach(function(article) {
+        console.log(article)
+        
+        var inner = article.getElementsByTagName('article')[0]
+        
+        fetch(article.href)
+           .then( r => r.text() )
+           .then( t => inner.innerHTML = t )
+    });
 </script>
 <link rel="stylesheet" href="main.css">
 </head>
@@ -10,7 +26,20 @@
     <common-header></common-header>
 
     <div class="pageContent hide_till_load">
-        This is the resources page
+        <div class="header">
+            <h1> Article </h1>
+            
+            Proverbs 14:23 (NIV)
+                All hard work brings a profit,
+                    but mere talk leads only to poverty.
+        </div>
+        <a class="article" href="articles/template.md">
+            <span>
+                <img src="resources/LinkedListLessIndirection.svg" alt="Linked List Less Indirection">
+                <article markdown="1"></article>
+            </span>
+        </a>
+        
     </div>
 </body>
 </html>

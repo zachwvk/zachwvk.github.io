@@ -5,3 +5,44 @@
 .hide_till_5s {
     visibility: hidden;
 }
+
+.pageContent {
+    /*background-color: antiquewhite;*/
+}
+
+.thumbnail {
+    float: left;
+    max-height: 150px;
+    max-width: 50%;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+.article {
+    color: inherit;
+    text-decoration: none;
+}
+.article:hover {
+    text-decoration: none;
+    color: inherit;
+}
+.article:hover h3{
+    text-decoration: underline;
+    color: #6491ff;
+}
+
+.article_content {
+    /*display: flex;*/
+}
+
+
+.teaser {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+@media only screen and (min-width: 600px) {
+  .article_content {
+    display: flex;
+  }
+}

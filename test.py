@@ -10,7 +10,7 @@ Handler.extensions_map.update({
     ".js": "application/x-javascript",
 });
 
-with socketserver.TCPServer(("", PORT), Handler) as httpd:
+with socketserver.TCPServer(("0.0.0.0", PORT), Handler) as httpd:
     print("serving at port", PORT)
     print(Handler.extensions_map[".js"])
     httpd.serve_forever()

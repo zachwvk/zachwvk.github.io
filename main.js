@@ -22,12 +22,21 @@ class CommonHeader extends HTMLElement {
 }
 customElements.define('common-header', CommonHeader)
 
-function exports() {
+function exports(ready = true) {
     window.openPage = openPage;
     console.log("imported")
     
-    document.getElementsByClassName('pageContent')[0].classList.remove('hide_till_load')
+    if(ready) {
+        window.addEventListener('load', function () {
+            whenready()
+        });
+    }
 }
 
-export { exports };
+function whenready() {
+    document.getElementsByClassName('pageContent')[0].classList.remove('hide_till_load')
+    document.getElementsByTagName("html")[0].style.visibility = "visible";
+}
+
+export { exports, whenready };
 

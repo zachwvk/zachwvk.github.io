@@ -2,6 +2,8 @@
     visibility: hidden;
 }
 
+html { visibility:hidden; }
+
 .hide_till_5s {
     visibility: hidden;
 }

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="module">
+    import { exports } from "./main.js"; exports()
+    
+    var page_el = document.getElementsByTagName('article')[0]
+    
+    fetch('articles/' + window.location.search.slice(1) + '.md')
+       .then( r => r.text() )
+       .then( t => {
+           page_el.innerHTML = '<zero-md>' +
+               '<script type="text/markdown">' + t + '...</' + 'script>' +
+               '<template><style>code { background: inherit; }' +
+               '.markdown-body p:first-child { margin-block-start: 0; }' +
+               '.markdown-body p:last-child { margin-block-end: 0; }</style></template>' +
+           '</zero-md>'
+    })
+</script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/zero-md@3?register"></script>
+<link rel="stylesheet" href="hellocss/base.css">
+<link rel="stylesheet" href="main.css">
+</head>
+<body><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <common-header></common-header>
+
+    <div class="pageContent hide_till_load page">
+        <h3 class="article_title"></h3>
+        <article markdown="1"></article>
+    </div>
+</meta></body>
+</html>

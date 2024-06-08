@@ -4,7 +4,7 @@ function openPage(event, title) {
     var href = document.location.href
     console.log(href)
     
-    document.location.href = "./" + title + ".html"
+    document.location.href = "./" + title
 }
 
 class CommonHeader extends HTMLElement {
@@ -13,7 +13,6 @@ class CommonHeader extends HTMLElement {
             <div class="header">
                 <div class="tab">
                     <button class="tabitem" onclick="openPage(event, 'home')">Home</button>
-                    <button class="tabitem" onclick="openPage(event, 'resources')">Resources</button>
                     <button class="tabitem" onclick="openPage(event, 'about')">About</button>
                 </div>
             </div>

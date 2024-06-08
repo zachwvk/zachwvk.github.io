@@ -3,15 +3,69 @@
 <head>
 <script type="module">
     import { exports } from "./main.js"; exports()
+    
+    //var articles = getElementsByClassName("article");
+    //for(var i = 0; i < slides.length; i++)
+    //{
+    //   Distribute(slides[i]);
+    //}
+    
+    document.querySelectorAll('.article').forEach(function(article) {
+        console.log(article)
+        
+        var title_el = article.getElementsByClassName('article_title')[0]
+        var inner_el = article.getElementsByTagName('article')[0]
+        
+        var url = new URL(article.href);
+        console.log(url)
+        
+        fetch('articles/' + url.search.slice(1) + '.md')
+           .then( r => r.text() )
+           .then( t => {
+               var el = document.createElement( 'div' );
+               el.innerHTML = t
+
+               var title = el.getElementsByClassName( 'title' )[0];
+               var teaser = el.getElementsByClassName( 'teaser' )[0];
+               console.log(el, teaser, title)
+               
+               title_el.innerHTML = title.innerHTML
+               
+               inner_el.innerHTML = '<zero-md>' +
+                   '<script type="text/markdown">' + teaser.innerHTML + '...</' + 'script>' +
+                   '<template><style>code { background: inherit; }' +
+                   '.markdown-body p:first-child { margin-block-start: 0; }' +
+                   '.markdown-body p:last-child { margin-block-end: 0; }</style></template>' +
+               '</zero-md>'
+        })
+        
+        //inner.innerHTML = '<zero-md src="' + article.href + '"></zero-md>'
+    });
 </script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/zero-md@3?register"></script>
 <link rel="stylesheet" href="hellocss/base.css">
 <link rel="stylesheet" href="main.css">
 </head>
 <body><meta name="viewport" content="width=device-width, initial-scale=1.0">
     <common-header></common-header>
 
-    <div class="pageContent hide_till_load">
-        This is the home page
+    <div class="pageContent hide_till_load page">
+        <div class="header">
+            <h1> Article </h1>
+            
+    Proverbs 14:23 (NIV)
+<pre class="verse">All hard work brings a profit,
+ but mere talk leads only to poverty.</pre>
+        
+        </div>
+        <a class="article" href="articles?template">
+            <h3 class="article_title"></h3>
+            <div class="article_content">
+                <img class="thumbnail" src="resources/LinkedListLessIndirection.svg" alt="Linked List Less Indirection">
+                <article class="teaser" markdown="1"></article>
+            </div>
+        </a>
+        
     </div>
 </meta></body>
 </html>

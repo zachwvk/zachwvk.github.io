@@ -12,6 +12,11 @@ html { visibility:hidden; }
     /*background-color: antiquewhite;*/
 }
 
+.verse {
+    font-size: min(calc(3.8vw), 14px);
+    overflow: clip;
+}
+
 .thumbnail {
     float: left;
     max-height: 150px;
@@ -44,7 +49,7 @@ html { visibility:hidden; }
 }
 
 @media only screen and (min-width: 600px) {
-  .article_content {
-    display: flex;
-  }
+    .article_content {
+      display: flex;
+    }
 }

@@ -1,5 +1,5 @@
-Introduction
-------------
+<a class="title">This is the Article Title</a>
+==============================================
 
 <a class="teaser">
 

@@ -2,11 +2,34 @@
 
 import http.server
 import socketserver
+from urllib.parse import urlparse, urlunparse
+from os.path import splitext
 
 PORT = 8000
 
-Handler = http.server.SimpleHTTPRequestHandler
+class MyHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def do_HEAD(self):
+        print('head', self.path)
+        super().do_HEAD()
+    
+    def do_GET(self):
+        print('get', self.path)
+        
+        url = urlparse(self.path)
+        
+        file, ext = splitext(url.path)
+        
+        print(url, file, ext)
+        if not ext:
+            url = list(url)
+            url[2] += '.html'
+            self.path = urlunparse(url)
+        
+        super().do_GET()
+
+Handler = MyHTTPRequestHandler
 Handler.extensions_map.update({
+    ".js": "application/x-javascript",
     ".js": "application/x-javascript",
 });
 

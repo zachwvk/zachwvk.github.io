@@ -10,7 +10,7 @@
        .then( r => r.text() )
        .then( t => {
            page_el.innerHTML = '<zero-md>' +
-               '<script type="text/markdown">' + t + '...</' + 'script>' +
+               '<script type="text/markdown">' + t + '</' + 'script>' +
                '<template><style>code { background: inherit; }' +
                '.markdown-body p:first-child { margin-block-start: 0; }' +
                '.markdown-body p:last-child { margin-block-end: 0; }</style></template>' +

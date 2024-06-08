@@ -13,7 +13,7 @@ html { visibility:hidden; }
 }
 
 .verse {
-    font-size: min(calc(3.8vw), 14px);
+    font-size: min(calc(2.8vw - 0.4px), 14px);
     overflow: clip;
 }
 
@@ -23,6 +23,19 @@ html { visibility:hidden; }
     max-width: 50%;
     padding-right: 10px;
     padding-bottom: 10px;
+}
+
+.portrait {
+    object-fit: cover;
+    float: left;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+@media only screen and (min-width: 600px) {
+    .portrait {
+      display: flex;
+    }
 }
 
 .article {
@@ -53,3 +66,17 @@ html { visibility:hidden; }
       display: flex;
     }
 }
+
+@media only screen and (min-width: 600px) {
+    .footer {
+      display: flex;
+    }
+}
+
+@media only screen and (min-width: 300px) {
+    .portrait {
+      max-width: 50%;
+    }
+}
+    
+

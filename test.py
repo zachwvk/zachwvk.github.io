@@ -3,7 +3,7 @@
 import http.server
 import socketserver
 from urllib.parse import urlparse, urlunparse
-from os.path import splitext
+from os import path
 
 PORT = 8000
 
@@ -17,10 +17,15 @@ class MyHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         
         url = urlparse(self.path)
         
-        file, ext = splitext(url.path)
+        file, ext = path.splitext(url.path)
         
         print(url, file, ext)
-        if not ext:
+        
+        if not path.basename(file):
+            url = list(url)
+            url[2] = 'index.html'
+            self.path = urlunparse(url)
+        elif not ext:
             url = list(url)
             url[2] += '.html'
             self.path = urlunparse(url)

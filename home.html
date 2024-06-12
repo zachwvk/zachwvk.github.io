@@ -35,7 +35,13 @@
                    '<script type="text/markdown">' + teaser.innerHTML + '...</' + 'script>' +
                    '<template><style>code { background: inherit; }' +
                    '.markdown-body p:first-child { margin-block-start: 0; }' +
-                   '.markdown-body p:last-child { margin-block-end: 0; }</style></template>' +
+                   '.markdown-body p:last-child { margin-block-end: 0; }</style>' + 
+                   '<!-- Github markdown styles (light/dark) -->' +
+                   '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css" />' +
+                   '<!-- Highlightjs Github theme (light) -->' +
+                   '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11/styles/github.min.css" />' +
+                   '<!-- Highlightjs Github theme (dark) -->' +
+                   '<link rel="stylesheet" media="(prefers-color-scheme:dark)" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11/styles/github-dark.min.css" />' +'</template>' +
                '</zero-md>'
         })
         

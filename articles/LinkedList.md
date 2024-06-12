@@ -1,11 +1,14 @@
-Introduction
-============
+<a class="title">C PreProcessor as a Templating system</a>
+==========================================================
 
-<a class="teaser">
+You can find the source code for this project by following [this link](https://github.com/zachwvk/LinkedList/tree/master)
+
+Introduction
+------------
 
 This project is based upon a desire for a set of standard datastructures within the C programming language. Originally I had this goal while in my datastructures class at University. I spent a large number of hours developing an AVL Tree as an assignment, and I just couldn't settle with the idea that all that work was not general enough to re-use in different projects.
 
-The reason this kind of re-use is hard in the C programming language is complicated, you could </a>easily create a datastructure that accepted a void pointer to the data you wished to store within the datastructure. for example, you could define this as a linked list node data type:
+The reason this kind of re-use is hard in the C programming language is complicated, you could easily create a datastructure that accepted a void pointer to the data you wished to store within the datastructure. for example, you could define this as a linked list node data type:
 
     typedef struct LL_NODE {
         struct LL_NODE * next;
@@ -72,14 +75,14 @@ You may respond to this and say just use C++, in fact C++ already has implementa
 * There are also software design choices imposed upon you when you code in C++, like Object Hierarchies, and those hidden memory allocations, which are regarded by some as downsides. 
 * Finally C++ has a lot of features, not all of which improve the programming experience, but in order to write much C++ code you have to have a fairly advanced understanding of all the additional C++ syntax.
 
-Anyway, back in C land, I mentioned C doesn't have a templating system. This isn't actually entirely true, and the remainder of this article I will be discussing how the C preprocessor can be used to create a C templating system.
+Anyway, back in C land, <a class="teaser">I mentioned C doesn't have a templating system. This isn't actually entirely true, and the remainder of this article I will be discussing how the C preprocessor can be used to create a C templating system.
 
-Hold on, I know you are now screening, at me for mentioning the C preprocessor, I will grant that reading code littered with `#ifdef`'s is not a great experience. Additionally the fact that any C symbol could alternately be either a macro or a function does make it possible to get really confused by the preprocessor. But I will counter any other dis against the preprocessor being hard to understand or debug with a simple suggestion that you learn how to use the `gcc -E` flag, or `msvc /P` to have your compiler stop after preprocessing your file. This is an extremely powerful way of developing C Macros, you can see exactly what the preprocessor has done. No matter what, the C preprocessor is done and out of the picture long before you even get a binary to run, Thus it's going to be hard for the preprocessor itself to generate runtime bugs in your software. I think many of the complaints people have against the preprocessor are from people trying to understand a Macro their colleague who left the company wrote, but neglected to check the preprocessor output.
+Hold on, I know you are now screening, at me for mentioning the C preprocessor</a>, I will grant that reading code littered with `#ifdef`'s is not a great experience. Additionally the fact that any C symbol could alternately be either a macro or a function does make it possible to get really confused by the preprocessor. But I will counter any other dis against the preprocessor being hard to understand or debug with a simple suggestion that you learn how to use the `gcc -E` flag, or `msvc /P` to have your compiler stop after preprocessing your file. This is an extremely powerful way of developing C Macros, you can see exactly what the preprocessor has done. No matter what, the C preprocessor is done and out of the picture long before you even get a binary to run, Thus it's going to be hard for the preprocessor itself to generate runtime bugs in your software. I think many of the complaints people have against the preprocessor are from people trying to understand a Macro their colleague who left the company wrote, but neglected to check the preprocessor output.
 
 With that out of the way, let's finally see what the preprocessor can do.
 
-<a class="title">Preprocessor Templating System</a>
----------------------------------------------------
+Preprocessor Templating System
+------------------------------
 
 I will introduce this to you by showing you first an example of how it looks when used in C code.
 

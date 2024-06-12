@@ -65,13 +65,12 @@ C++ has a feature called Templates that solves some of the above problems. Here 
         struct LL_NODE * next;
         T * data;
     }; 
-The above would allow your C++ Compiler to raise an error when you try to add a `foo` to a list of `bar`. But it doesn't solve the problems of the additional dereferences, or the hidden memory allocations
+The above would allow your C++ Compiler to raise an error when you try to add a `foo` to a list of `bar`. But it doesn't solve the problems of the additional dereferences, or the hidden memory allocations. There probably are ways to solve these problems as well in C++, but my goal here is not to be forced to use C++. The issue of course is that C presumably doesn't natively support any kind of templating structure like what is present in the C++ language. 
 
-Regardless, C presumably doesn't natively support any kind of templating structure like what is present in the C++ language. 
-
-You may respond to this and say just use C++, in fact C++ already has implementations of Standard Containers which work well. To this I have a few comments. 
+You may respond to this and say why not just use C++?, in fact C++ already has implementations of Standard Containers which work well, so maybe this whole project is pointless. To this I have a few comments. 
 * It's not always a trivial change to go from C to C++, sure carefully written C code can compile under a C++ compiler, but a lot of codebases won't, and inter operation between code compiled separately under C and C++ compliers is harry.
 * Additionally some platforms, albeit hard to find, don't support C++. 
+* C++ has an appreciable binary size overhead when compared to C.
 * There are also software design choices imposed upon you when you code in C++, like Object Hierarchies, and those hidden memory allocations, which are regarded by some as downsides. 
 * Finally C++ has a lot of features, not all of which improve the programming experience, but in order to write much C++ code you have to have a fairly advanced understanding of all the additional C++ syntax.
 
